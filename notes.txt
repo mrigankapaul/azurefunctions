@@ -121,10 +121,35 @@ az resource create \
     --properties '{"Application_Type":"web"}'
 
 
-az functionapp create --consumption-plan-location "canadacentral" --name "mrigankafunc" --resource-group "mriganka-rg" --runtime dotnet --storage-account "mrigankastorage" --functions-version
+az functionagitpp create --consumption-plan-location "canadacentral" --name "mrigankafunc" --resource-group "mriganka-rg" --runtime dotnet --storage-account "mrigankastorage" --functions-version
 
 az functionapp config appsettings set --name "mrigankafunc" --resource-group "mriganka-rg" --settings "SendGridApiKey=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" "EmailSender=paul.mriganka@gmail.com"
 
 
 Deploying Azure Functions Using ARM templates
 
+az functionapp deployment source config-zip --name "mrigankafunc" --resource-group "mriganka-rg" --src publish.zip
+
+Function Keys - 
+
+    Authorization Levels
+        Anonymous, Function, Admin
+    Function Level Authorization
+        Specific code per function
+        "code" as query string parameters
+        "x-function-key" HTTP Header
+    Admin level Authorization
+        - One code for all functions
+    Manage keys in the Azure Function Portal 
+        - Cycle revoke keys
+        - Generate keys as per client
+    Alternative way -
+        Enable "Easy Auth"
+            - Applies to the entire function app
+            - Integrates with Azure AD, Google, Facebook and other
+            - Redirects unauthorized uses to login page.
+        Perform you validation - using JWT token
+    Azure API Management Service in-front of Azure Function app
+        - Offers many authorization features
+        - Proxies traffic to your function app
+    

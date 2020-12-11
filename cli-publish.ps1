@@ -1,7 +1,7 @@
 # how to use the Azure Functions Core Tools to publish:
 # n.b. by default this will use "run from package" zip
 # deployment and put the zip in blob storage
-export appName="functionapp"
+export appName="mrigankafunc"
 func azure functionapp publish $appName
 
 # how to use the Azure CLI to publish a zip file
@@ -11,8 +11,8 @@ func azure functionapp publish $appName
 # and update packagename.txt to point to it
 # Otherwise the zip will be unpacked directly to
 # D:\home\site\wwwroot
-$resourceGroupName = "myresourcegroup"
-az functionapp deployment source config-zip `
-      -g $resourceGroupName -n $appName `
+export resourceGroupName = "mriganka-rg"
+az functionapp deployment source config-zip \
+      -g $resourceGroup -n $appName  \
       --src "publish.zip"
 
