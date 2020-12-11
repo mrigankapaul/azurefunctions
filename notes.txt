@@ -72,9 +72,59 @@ https://www.troyhunt.com/azure-functions-in-practice/
     - Go Serverless
 
 
+A function will have input trigger but may have one or many bindings. Though Design principle states only one binding.
+
+Deploying Function Apps
+    Infrastructure 
+        - App Service Plan
+        - Storage Account
+        - Application Insights
+        - Function App
+    Creating Infrastructure
+        - Visual Studio
+        - Azure portal
+    Infrastrcuture as Code 
+        - Azure CLI
+        - ARM template
+
+    Publishing function app 
+        Manual Publishing 
+            - Azure portal
+            - Visual Studio
+        Automatic Publishing
+            - Publish zip with Kudu API
+            - "Run from package"
+            - Azure Function Core tools
+            - Azure CLI
+            - Azure DevOps
+            - Cake (Build Automation of c#)
 Workshop - 
 
 func version
 func 
 
 code development too of Azure functions
+
+Deploying Azure Functions using CLI
+
+export resourcegroup="mriganka-rg"
+az account list-locations -o tabl
+export location="canadacentral"
+az group create -n $resourcegroup -l $location
+export storageAccount="mrigankastorage"
+az storage account create -n mrigankastorage -g $resourcegroup -l $location --sku Standard_LRS
+az resource create \
+    --resource-group "mriganka-rg" \
+    --resource-type "Microsoft.Insights/components" \
+    --name "mrigankafunc" \
+    --location "canadacentral" \
+    --properties '{"Application_Type":"web"}'
+
+
+az functionapp create --consumption-plan-location "canadacentral" --name "mrigankafunc" --resource-group "mriganka-rg" --runtime dotnet --storage-account "mrigankastorage" --functions-version
+
+az functionapp config appsettings set --name "mrigankafunc" --resource-group "mriganka-rg" --settings "SendGridApiKey=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" "EmailSender=paul.mriganka@gmail.com"
+
+
+Deploying Azure Functions Using ARM templates
+
