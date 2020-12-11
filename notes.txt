@@ -1,0 +1,80 @@
+Azure Functions = Event + Code
+Azure Function App = Deployment Unit
+Event = Scheduled Time OR Process a message or new items in blob storage OR HTTP Request or WebHook
+App Service + Web Jobs
+Azure Functions -
+    - Simplified Programming model
+            - Just the code to response to events
+            - Eliminate bolierplate
+            - Focus on business requirement
+    - Consumption based pricing model
+        - Pay as you go
+        - Only pay for what you use
+        - Automatic scale
+    - Pricing Plans 
+        - Run in a App-Service Plan
+        - Or use the consumption Plan
+
+    - Charged in 2 metrics (Billing model)
+        - Number of executions
+        - CPU Time (s) * RAM (GB) GbS
+
+    - Free monthly grant 
+        - 1,000,000 executions
+        - 400,000 Gb-S
+
+    Reduce your costs with 
+        - Faster invocation times
+        - Fewer invocations
+        - Reduced memory requirements
+    Consumption Plan 
+        - Limited to 5 mins per execution
+        - Optional maily daily quota
+    Regular App Service Plan 
+        - Pay for dedicated servers
+        - Predictable monthly cost
+        - Serveral pricing tiers of App Service
+        - No Function duration constraints
+    Azure Functions premium plan
+        - Vnet Connectivity
+        - Improved Performance
+
+    Azue Function Pricing - 
+        https://azure.microsoft.com/en-ca/pricing/details/functions/
+
+    Azure Function Runtime is available as a docker container
+        - Host anywhere
+
+Benefits of Azure Functions
+    Rapid and simple development 
+        - Code within Azure portal
+        - Eliminate bolier plate
+    All the power of Azure Apps - CI, KUDU, Easy Auth, Certifcates, Custom Domains, Settings etc
+    Cost-effective pricing 
+        - Pay for what you use
+    No servers to maintain and automatic scaling 
+
+Serverless Architecture
+    - Delegate the management of servers and Automatic Scaling ( FAAS - Function as a Service)
+    - even wiring up of events is transparent for you
+
+Azure Function lets you group together related functions together into Function Apps to share configuration settings and local resources
+
+
+
+What are the Azue Function Use Case -
+    - Experiments and prototyping
+    - Automatic development process ( Use a web hook with a slack channed with CI)
+    - Decomposing or extending monolithic application
+https://www.troyhunt.com/azure-functions-in-practice/
+    - Independent scaling
+    - Adpater for integrating systems   
+    - Go Serverless
+
+
+Workshop - 
+
+func version
+func 
+
+code development too of Azure functions
